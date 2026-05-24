@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohd Majid — Customer Success Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-2: #4a4640;
+    --ink-3: #8a847e;
+    --paper: #faf8f4;
+    --paper-2: #f0ece4;
+    --paper-3: #e6e0d6;
+    --accent: #c4622d;
+    --accent-light: #f5e8e0;
+    --gold: #b8a060;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(250, 248, 244, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--paper-3);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--paper) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2rem;
+    font-size: 0.8rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; color: var(--paper) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 3rem 5rem 4rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    max-width: 460px;
+    margin: 1.5rem 0 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196, 98, 45, 0.3);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--paper-3);
+    color: var(--ink-2);
+    padding: 0.85rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--ink-3);
+    color: var(--ink);
+  }
+
+  .hero-right {
+    background: var(--paper-2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-right::before {
+    content: 'CS';
+    position: absolute;
+    font-family: var(--serif);
+    font-size: 22rem;
+    font-weight: 700;
+    color: var(--paper-3);
+    line-height: 1;
+    user-select: none;
+  }
+
+  .hero-card {
+    position: relative;
+    z-index: 1;
+    background: white;
+    border-radius: 1.25rem;
+    padding: 2rem;
+    width: 320px;
+    box-shadow: 0 2px 40px rgba(0,0,0,0.08);
+    border: 0.5px solid var(--paper-3);
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-card h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-card p {
+    font-size: 0.8rem;
+    color: var(--ink-3);
+    margin-bottom: 1.25rem;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .badge.dark {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 0.5px solid var(--paper-2);
+  }
+
+  .stat { text-align: center; }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    margin-top: 0.15rem;
+  }
+
+  /* LOGOS */
+  .logos-bar {
+    background: var(--paper-2);
+    border-top: 0.5px solid var(--paper-3);
+    border-bottom: 0.5px solid var(--paper-3);
+    padding: 1.5rem 4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    overflow: hidden;
+  }
+
+  .logos-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    white-space: nowrap;
+    margin-right: 1rem;
+  }
+
+  .logo-item {
+    background: white;
+    border: 0.5px solid var(--paper-3);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* WHAT I DO */
+  .services {
+    background: var(--paper);
+  }
+
+  .services-intro {
+    max-width: 560px;
+    margin-bottom: 4rem;
+  }
+
+  .services-intro p {
+    color: var(--ink-2);
+    font-size: 1.05rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--paper-2);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    border: 0.5px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    border-color: var(--paper-3);
+    transform: translateY(-4px);
+  }
+
+  .service-num {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--paper-3);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  .service-tag {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  .experience {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .experience h2 { color: var(--paper); }
+  .experience h2 em { color: var(--gold); }
+  .experience .section-label { color: var(--gold); }
+  .experience .section-label::before { background: var(--gold); }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .exp-card {
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+
+  .exp-card:hover {
+    border-color: rgba(255,255,255,0.25);
+  }
+
+  .exp-company {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-card h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-period {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1rem;
+  }
+
+  .exp-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .exp-card li {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    gap: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .exp-card li::before {
+    content: '→';
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  /* SKILLS */
+  .skills-section {
+    background: var(--paper);
+  }
+
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3.5rem;
+  }
+
+  .skills-left p {
+    color: var(--ink-2);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .skills-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .skill-pill {
+    background: var(--paper-2);
+    border: 0.5px solid var(--paper-3);
+    border-radius: 2rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.825rem;
+    color: var(--ink-2);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    cursor: default;
+  }
+
+  .skill-pill:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .skill-pill.highlight {
+    background: var(--accent-light);
+    border-color: rgba(196, 98, 45, 0.2);
+    color: var(--accent);
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--paper-2);
+    text-align: center;
+    border-top: 0.5px solid var(--paper-3);
+  }
+
+  .cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .cta h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta p {
+    color: var(--ink-2);
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-info {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item:hover { color: var(--accent); }
+
+  .contact-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.4);
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+  }
+
+  .footer-name {
+    font-family: var(--serif);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+
+  .hero-card {
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    .hero-left { padding: 6rem 1.5rem 3rem; }
+    .hero-right { min-height: 320px; }
+
+    section { padding: 4rem 1.5rem; }
+    .logos-bar { padding: 1.25rem 1.5rem; }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
+
+    footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Mohd Majid</a>
+  <ul class="nav-links">
+    <li><a href="#services">What I Do</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding: 0;">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Available for hire — remote, IST</div>
+    <h1>The support<br>specialist who <em>moves</em><br>the needle.</h1>
+    <p class="hero-subtitle">
+      4+ years building customer success operations across SaaS, fintech, and e-commerce. I don't just resolve tickets — I reduce them.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:hiremajidtoday@gmail.com" class="btn-primary">Get in Touch →</a>
+      <a href="#experience" class="btn-secondary">See My Work</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="avatar">MM</div>
+      <h3>Mohd Majid</h3>
+      <p>Customer Success &amp; Support Specialist</p>
+      <div class="badge-row">
+        <span class="badge">SaaS</span>
+        <span class="badge">Fintech</span>
+        <span class="badge">E-Commerce</span>
+        <span class="badge dark">Remote</span>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Years</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Industries</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Hires Trained</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS BAR -->
+<div class="logos-bar">
+  <span class="logos-label">Worked with</span>
+  <span class="logo-item">SquadTrip</span>
+  <span class="logo-item">Revolut</span>
+  <span class="logo-item">Amazon</span>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-intro">
+    <div class="section-label">What I do</div>
+    <h2>Support that <em>scales.</em></h2>
+    <p>From handling thousands of live chats to building the systems that make support effortless — I do both.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <h3>Customer Success & Support</h3>
+      <p>End-to-end support via live chat and ticketing for global users. Fast resolution, high CSAT, low escalation rates.</p>
+      <span class="service-tag">Live Chat · Ticketing · Escalation</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <h3>Process & Workflow Design</h3>
+      <p>I audit broken workflows, redesign them, and document everything. The result: faster resolution, fewer repeat tickets.</p>
+      <span class="service-tag">Jira · Confluence · Slack</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <h3>Training & Onboarding</h3>
+      <p>Built onboarding programs and training curricula for new support hires that measurably improved team KPIs.</p>
+      <span class="service-tag">Knowledge Base · SOPs · Coaching</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <h3>Fintech & Wealth Support</h3>
+      <p>Handled sensitive trading, crypto, and dividend queries at Revolut with compliance awareness and precision.</p>
+      <span class="service-tag">Trading · Crypto · Compliance</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <h3>Fraud & Abuse Prevention</h3>
+      <p>Investigated fraudulent claims at Amazon, identified patterns, and contributed to improved fraud detection systems.</p>
+      <span class="service-tag">Risk Assessment · Policy · Investigation</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <h3>Help Center Documentation</h3>
+      <p>Created help center content and Confluence documentation that reduced repetitive inbound queries significantly.</p>
+      <span class="service-tag">Documentation · FAQs · Self-service</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-label">Career history</div>
+  <h2>Where I've <em>delivered.</em></h2>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-company">SquadTrip · Remote (USA & Global)</div>
+      <h3>Customer Success Representative</h3>
+      <div class="exp-period">Dec 2024 – Feb 2026</div>
+      <ul>
+        <li>End-to-end support via live chat and ticketing for global users</li>
+        <li>Collaborated with CEO, developers, and analysts on product issues</li>
+        <li>Escalated bugs via Jira through Slack, improving resolution speed</li>
+        <li>Led daily walkthrough calls to align team on workflows</li>
+        <li>Built onboarding and training programs improving team KPIs</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-company">Revolut · Remote (Europe)</div>
+      <h3>Support Specialist – Wealth & Trading</h3>
+      <div class="exp-period">Nov 2023 – Oct 2024</div>
+      <ul>
+        <li>High-volume live chat support for trading and crypto products</li>
+        <li>Resolved onboarding, dividend, and transaction-related issues</li>
+        <li>Improved Confluence documentation by identifying knowledge gaps</li>
+        <li>Trained 5 new hires, boosting KPI performance</li>
+        <li>Managed sensitive financial queries with compliance awareness</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-company">Amazon · Remote (North America)</div>
+      <h3>Concession Abuse Prevention Associate</h3>
+      <div class="exp-period">Dec 2022 – Nov 2023</div>
+      <ul>
+        <li>Investigated fraudulent claims, reducing financial losses</li>
+        <li>Handled high-risk cases with strict policy enforcement</li>
+        <li>Identified patterns to improve fraud detection processes</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-company">Amazon · Remote (India & North America)</div>
+      <h3>Customer Service Associate & Shipping Specialist</h3>
+      <div class="exp-period">Apr 2021 – Dec 2022</div>
+      <ul>
+        <li>Resolved last-mile delivery issues with logistics partners</li>
+        <li>Handled geofencing and delivery access problems in real time</li>
+        <li>Supported customers via chat, phone, and email at scale</li>
+        <li>Maintained high resolution rates in a high-volume environment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-label">Toolkit</div>
+  <div class="skills-layout">
+    <div class="skills-left">
+      <h2>Sharp skills,<br><em>proven</em> in the field.</h2>
+      <p>
+        Every tool and process I list here has been used in production — handling real customers, real escalations, and real business impact.
+      </p>
+      <a href="mailto:hiremajidtoday@gmail.com" class="btn-primary" style="display: inline-flex; width: fit-content;">Let's Talk →</a>
+    </div>
+    <div class="skills-right">
+      <span class="skill-pill highlight">Customer Success</span>
+      <span class="skill-pill highlight">Live Chat Support</span>
+      <span class="skill-pill highlight">Ticketing Systems</span>
+      <span class="skill-pill">SaaS Support Ops</span>
+      <span class="skill-pill">Fintech Support</span>
+      <span class="skill-pill">Crypto & Trading</span>
+      <span class="skill-pill">Escalation Handling</span>
+      <span class="skill-pill">Workflow Design</span>
+      <span class="skill-pill highlight">Jira</span>
+      <span class="skill-pill">Slack</span>
+      <span class="skill-pill">Confluence</span>
+      <span class="skill-pill">Help Center Docs</span>
+      <span class="skill-pill highlight">Training & Onboarding</span>
+      <span class="skill-pill">KPI Tracking</span>
+      <span class="skill-pill">Cross-functional Collaboration</span>
+      <span class="skill-pill">Fraud Prevention</span>
+      <span class="skill-pill">Process Improvement</span>
+      <span class="skill-pill">Knowledge Base Management</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <div class="section-label" style="justify-content: center;">Let's work together</div>
+    <h2>Ready when<br>you <em>are.</em></h2>
+    <p>
+      I'm actively looking for my next role in customer success or support. If you're building something that needs a sharp, experienced specialist — let's talk.
+    </p>
+    <div class="cta-actions">
+      <a href="mailto:hiremajidtoday@gmail.com" class="btn-primary">Email Me →</a>
+      <a href="tel:+919696468620" class="btn-secondary">+91 96964 68620</a>
+    </div>
+    <div class="contact-info">
+      <a href="mailto:hiremajidtoday@gmail.com" class="contact-item">
+        <span class="contact-dot"></span>
+        hiremajidtoday@gmail.com
+      </a>
+      <span class="contact-item">
+        <span class="contact-dot"></span>
+        India (Remote – IST)
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Mohd Majid</span>
+  <span>Customer Success Specialist · Available Now</span>
+</footer>
+
+</body>
+</html>
